@@ -132,10 +132,10 @@ function main() {
 
   function startPeriodicMessaging() {
     clearInterval(intervalId);
-    var timeout = PERIODIC_MESSAGING_TIMEOUT * 1000;
+    intervalId = null;
 
     showMotivationMessage(getMotivationMessage());
-    setTimeout(startPeriodicMessaging, timeout);
+    timer = new Timer(PERIODIC_MESSAGING_TIMEOUT, startPeriodicMessaging)
   }
 
   function handleIntervalTick() {
